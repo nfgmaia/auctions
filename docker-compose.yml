@@ -1,0 +1,21 @@
+services:
+  database:
+    image: postgres:17.4
+    container_name: database
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: example
+      POSTGRES_DB: auctions
+    ports:
+      - "5432:5432"
+
+  car-auction-system:
+    container_name: car-auction-system
+    restart: unless-stopped
+    build: .
+    environment:
+      - ASPNETCORE_URLS=http://+:5190
+    depends_on:
+      - database
+    ports:
+      - "5190:5190"

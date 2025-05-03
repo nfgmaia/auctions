@@ -1,0 +1,40 @@
+### Add vehicle
+
+POST http://localhost:5190/vehicles
+Content-Type: application/json
+
+{
+  "manufacturer": "Ford",
+  "model": "Fiesta",
+  "type": "Sedan",
+  "year": 2019,
+  "startingBid": 1500,
+  "nrDoors": 5
+}
+
+### Search vehicles
+
+GET http://localhost:5190/vehicles
+
+### Start auction
+
+POST http://localhost:5190/auctions
+Content-Type: application/json
+
+{
+  "vehicleId": "01969801-ec5e-7535-b2e9-62a6ddb73ddf"
+}
+
+### End auction
+
+POST http://localhost:5190/auctions/01969802-6cff-74f6-9987-6244f901c64d/end
+
+### Bid auction
+
+POST http://localhost:5190/auctions/01969802-6cff-74f6-9987-6244f901c64d/bid
+Content-Type: application/json
+
+{
+  "bidAmount": 1600,
+  "bidder": "nuno.maia"
+}
