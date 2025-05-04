@@ -36,6 +36,8 @@ public static class VehicleFactory
 
         return factory.Create(options);
     }
+    
+    internal static void ClearFactories() => factories.Clear();
 }
 
 public enum VehicleType

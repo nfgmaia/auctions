@@ -50,13 +50,14 @@ public class Auction
     {
         ArgumentException.ThrowIfNullOrEmpty(vehicleId, nameof(vehicleId));
         ArgumentOutOfRangeException.ThrowIfLessThan(startingBid, 0, nameof(startingBid));
+        var now = DateTime.UtcNow;
         return new()
         {
             Id = Guid.CreateVersion7().ToString(),
             VehicleId = vehicleId,
             StartingBid = startingBid,
-            StartDate = DateTime.UtcNow,
-            CreatedAt = DateTime.UtcNow,
+            StartDate = now,
+            CreatedAt = now,
         };
     }
     
